@@ -2,6 +2,7 @@ package main
 
 import (
 	"dms_api/database"
+	"dms_api/modules/roles"
 	"log"
 	"os"
 
@@ -25,5 +26,9 @@ func main() {
 
 	// static file
 	app.Static("/", "./public") 
+
+	// Routes
+	roles.Routes(app)
+
 	app.Listen(":" + os.Getenv("GO_API_PORT"))
 }

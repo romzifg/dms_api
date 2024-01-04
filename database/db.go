@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var Database *gorm.DB
+var DB *gorm.DB
 
 func DbConnect() {
 	err := godotenv.Load(".env")
@@ -24,5 +24,5 @@ func DbConnect() {
 		log.Fatal("Error connect to databse")
 	}
 
-	Database = db
+	DB = db
 }
