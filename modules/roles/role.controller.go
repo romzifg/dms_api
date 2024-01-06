@@ -9,7 +9,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func GetAllData(c *fiber.Ctx) error {
+func GetAll(c *fiber.Ctx) error {
 	var roles []Role
 
 	database.DB.Find(&roles)
