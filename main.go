@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
 )
 
@@ -20,6 +21,7 @@ func main() {
 		CaseSensitive: true,
 		AppName: os.Getenv("GO_APP_NAME"),
 	})
+	app.Use(logger.New())
 
 	// connection database
 	database.DbConnect()
@@ -30,5 +32,5 @@ func main() {
 	// Routes
 	roles.Routes(app)
 
-	app.Listen(":" + os.Getenv("GO_API_PORT"))
+	log.Fatal(app.Listen(":" + os.Getenv("GO_API_PORT")))
 }
