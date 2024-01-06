@@ -9,3 +9,7 @@ type RolePermissionInputDto struct {
 	RoleId     int64               `gorm:"varchar" json:"role_id"`
 	Permission []RolePermissionDto `json:"permissions"`
 }
+
+type UpdateRolePermissionInputDto struct {
+	Permission []RolePermissionDto `json:"permissions"`
+}

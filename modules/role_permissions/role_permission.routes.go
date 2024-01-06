@@ -7,4 +7,5 @@ func Routes(app *fiber.App) {
 
 	api.Get("/", GetAll)
 	api.Post("/", Store)
+	api.Put("/:id", Update)
 }

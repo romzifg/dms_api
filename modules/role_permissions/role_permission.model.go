@@ -6,15 +6,15 @@ import (
 )
 
 type RolePermission struct {
-	RolePermissionId    int64     	`gorm:"primary_key" json:"role_permission_id"`
-	RoleId  			int64    	`gorm:"int4" json:"role_id"`
-	Role				roles.Role	`gorm:"foreignKey:RoleId"`	
+	RolePermissionId    int     	`gorm:"primaryKey" json:"role_permission_id"`
+	RoleId  			int    	`gorm:"int" json:"role_id"`
+	Role				*roles.Role	`gorm:"foreignKey:RoleId" json:"role"`	
 	Code    			string     	`gorm:"varchar" json:"code"`
 	Description    		string     	`gorm:"varchar" json:"description"`
-	CreatedBy int16     `gorm:"int4" json:"created_by"`
+	CreatedBy int     `gorm:"int4" json:"created_by"`
 	CreatedAt time.Time `gorm:"timestamptz" json:"created_at"`
-	UpdatedBy int16     `gorm:"int4" json:"updated_by"`
+	UpdatedBy int     `gorm:"int4" json:"updated_by"`
 	UpdatedAt time.Time `gorm:"timestamptz" json:"updated_at"`
-	DeletedBy int16     `gorm:"int4" json:"deleted_by"`
+	DeletedBy int     `gorm:"int4" json:"deleted_by"`
 	DeletedAt time.Time `gorm:"timestamptz" json:"deleted_at"`
 }
