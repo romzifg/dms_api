@@ -4,6 +4,7 @@ import (
 	"dms_api/database"
 	"dms_api/modules/role_permissions"
 	"dms_api/modules/roles"
+	"dms_api/modules/upload"
 	"log"
 	"os"
 
@@ -40,6 +41,7 @@ func main() {
 	// Routes
 	roles.Routes(app)
 	role_permissions.Routes(app)
+	upload.Routes(app)
 
 	log.Fatal(app.Listen(":" + os.Getenv("GO_API_PORT")))
 }
