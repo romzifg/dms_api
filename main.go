@@ -2,6 +2,8 @@ package main
 
 import (
 	"dms_api/database"
+	"dms_api/modules/drive"
+	"dms_api/modules/drive_access"
 	"dms_api/modules/role_permissions"
 	"dms_api/modules/roles"
 	"dms_api/modules/upload"
@@ -42,6 +44,8 @@ func main() {
 	roles.Routes(app)
 	role_permissions.Routes(app)
 	upload.Routes(app)
+	drive.Routes(app)
+	drive_access.Routes(app)
 
 	log.Fatal(app.Listen(":" + os.Getenv("GO_API_PORT")))
 }

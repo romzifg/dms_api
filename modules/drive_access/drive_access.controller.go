@@ -29,7 +29,7 @@ func GetAll(c *fiber.Ctx) error {
 }
 
 func Store(c *fiber.Ctx) error {
-	var payload []DriveAccess
+	var payload DriveAccess
 
 	if err := c.BodyParser(&payload); err != nil {
 		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
