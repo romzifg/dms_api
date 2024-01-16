@@ -5,7 +5,7 @@ import (
 )
 
 type Role struct {
-	RoleId    int     `gorm:"primaryKey" json:"role_id"`
+	RoleId    int     `gorm:"primarykey" json:"role_id"`
 	RoleName  string    `gorm:"varchar" json:"role_name"`
 	Status    int     `gorm:"int" json:"status"`
 	CreatedBy int     `gorm:"int" json:"created_by"`

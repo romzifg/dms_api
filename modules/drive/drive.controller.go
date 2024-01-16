@@ -12,7 +12,7 @@ import (
 func GetAll(c *fiber.Ctx) error {
 	var drive []Drive
 
-	result := database.DB.Find(&drive)
+	result := database.DB.Preload("DriveAccess").Find(&drive)
 	if result.Error != nil {
 		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
 			"statusCode": http.StatusBadRequest,

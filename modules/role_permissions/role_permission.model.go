@@ -6,9 +6,9 @@ import (
 )
 
 type RolePermission struct {
-	RolePermissionId    int     	`gorm:"primaryKey" json:"role_permission_id"`
+	RolePermissionId    int     	`gorm:"primarykey" json:"role_permission_id"`
 	RoleId  			int    	`gorm:"int" json:"role_id"`
-	Role				*roles.Role	`gorm:"foreignKey:RoleId" json:"role"`	
+	Role				roles.Role	`gorm:"foreignKey: role_id; references: role_id" json:"role"`	
 	Code    			string     	`gorm:"varchar" json:"code"`
 	Description    		string     	`gorm:"varchar" json:"description"`
 	CreatedBy int     `gorm:"int4" json:"created_by"`

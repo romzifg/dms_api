@@ -6,10 +6,10 @@ import (
 )
 
 type Drive struct {
-	DriveId     int       					`gorm:"primary_key" json:"drive_id"`
+	DriveId     int       					`gorm:"primarykey" json:"drive_id"`
 	DriveName   string    					`gorm:"varchar" json:"drive_name"`
 	DriveAccessId int        				`gorm:"int4" json:"drive_access_id"`
-	DriveAccess drive_access.DriveAccess 	`gorm:"foreignKey:DriveAccessId" json:"driveaccess"`	
+	DriveAccess drive_access.DriveAccess 	`gorm:"foreignKey: DriveAccessId" json:"driveaccess"`	
 	CreatedBy   int       					`gorm:"int4" json:"created_by"`
 	CreatedAt   time.Time 					`gorm:"timestamptz" json:"created_at"`
 	UpdatedBy   int       					`gorm:"int4" json:"updated_by"`

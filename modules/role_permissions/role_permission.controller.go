@@ -12,7 +12,7 @@ func GetAll(c *fiber.Ctx) error {
 	var permission []RolePermission
 	query := c.Query("role_id") 
 
-	result := database.DB.Where("role_id = ?", query).Find(&permission)
+	result := database.DB.Where("role_id = ?", query).Preload("Role").Find(&permission)
 	if result.Error != nil {
 		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
 			"statusCode": http.StatusBadRequest,
