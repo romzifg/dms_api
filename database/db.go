@@ -3,6 +3,7 @@ package database
 import (
 	"log"
 	"os"
+	"regexp"
 
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
@@ -13,7 +14,11 @@ import (
 var DB *gorm.DB
 
 func DbConnect() {
-	err := godotenv.Load(".env")
+	projectName := regexp.MustCompile(`^(.*` + "dms-api" + `)`)
+    currentWorkDirectory, _ := os.Getwd()
+    rootPath := projectName.Find([]byte(currentWorkDirectory))
+	
+	err := godotenv.Load(string(rootPath) + `/.env`)
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
